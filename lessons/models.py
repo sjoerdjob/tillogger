@@ -6,6 +6,9 @@ from taggit.managers import TaggableManager
 
 
 class Lesson(models.Model):
+    class Meta:
+        ordering = ('-modified_at',)
+
     title = models.CharField(max_length=255)
     tags = TaggableManager()
     content = models.TextField()

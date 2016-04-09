@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title> - Things I learned</title>
+    </head>
+    <body>
+        <h1>Things I learned</h1>
+        {% for lesson in lessons %}
+            <div>
+                <h2>{{ lesson.title }}</h2>
+                <div>
+                    {{ lesson.content }}
+                </div>
+                <div>
+                    Tags: {{ lesson.tags.all|join:', ' }}
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+</html>

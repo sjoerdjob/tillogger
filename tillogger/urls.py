@@ -1,10 +1,13 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-urlpatterns = [
-    # Examples:
-    # url(r'^$', 'tillogger.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+import lessons.urls
 
+
+urlpatterns = [
+    # Re-use lessons.urls root-view as full root view.
+    url(r'^$', include(lessons.urls)),
+
+    url(r'^lessons/', include(lessons.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
