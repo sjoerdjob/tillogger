@@ -4,6 +4,7 @@ from django import template
 from django.utils.html import mark_safe
 
 import markdown
+import markdown.extensions.headerid  # Needs force-importing.
 import bleach
 
 register = template.Library()
@@ -21,6 +22,9 @@ ALLOWED_TAGS = [
 @register.filter
 def bleachmd(value):
     return mark_safe(bleach.clean(
-        markdown.markdown(value),
+        markdown.markdown(
+            value,
+            [markdown.extensions.headerid.HeaderIdExtension(level=2)],
+        ),
         tags=ALLOWED_TAGS,
     ))
