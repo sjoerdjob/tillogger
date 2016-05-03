@@ -1,3 +1,4 @@
+{% load bleachmd %}
 <!doctype html>
 
 <html>
@@ -8,9 +9,9 @@
         <h1>Things I learned</h1>
         {% for lesson in lessons %}
             <div>
-                <h2>{{ lesson.title }}</h2>
+                <h2>{{ lesson.title|bleachmd }}</h2>
                 <div>
-                    {{ lesson.content }}
+                    {{ lesson.content|bleachmd }}
                 </div>
                 <div>
                     Tags: {{ lesson.tags.all|join:', ' }}
