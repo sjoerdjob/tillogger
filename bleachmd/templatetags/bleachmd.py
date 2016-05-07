@@ -20,11 +20,22 @@ ALLOWED_TAGS = [
 
 
 @register.filter
+def bleachmd_title(value):
+    return mark_safe(bleach.clean(
+        markdown.markdown(
+            '# {}'.format(value),
+            [markdown.extensions.headerid.HeaderIdExtension(level=2)],
+        ),
+        tags=ALLOWED_TAGS,
+    ))
+
+
+@register.filter
 def bleachmd(value):
     return mark_safe(bleach.clean(
         markdown.markdown(
             value,
-            [markdown.extensions.headerid.HeaderIdExtension(level=2)],
+            [markdown.extensions.headerid.HeaderIdExtension(level=3)],
         ),
         tags=ALLOWED_TAGS,
     ))

@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4 {
+    border-bottom: 1px dotted black;
+}
+
+.lesson {
+    margin: 1em;
+    border: 1px dotted black;
+}
+
+.lesson .content {
+    padding: 1em;
+}
+
+.lesson h2:first-child {
+    margin-top: 0;
+}
+
+.lesson .tags {
+    padding: 0.2em;
+    border-top: 1px dotted black;
+}
