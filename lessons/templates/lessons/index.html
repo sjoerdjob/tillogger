@@ -14,9 +14,11 @@
                     {{ lesson.title|bleachmd_title }}
                     {{ lesson.content|bleachmd }}
                 </div>
-                <div class="tags">
-                    Tags: {{ lesson.tags.all|join:', ' }}
-                </div>
+                {% if lesson.tags.all %}
+                    <div class="tags">
+                        Tags: {{ lesson.tags.all|join:', ' }}
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
     </body>
